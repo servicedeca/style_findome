@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8" />
+        <title>Main Page</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fotorama.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/multiple-select.css" />
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
+        <link rel="stylesheet" href="css/jquery.dataTables.css" />
+        <link href="css/style.css" rel="stylesheet">
+        
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/fotorama.js"></script>
+        <script src="js/jquery.multiple.select.js"></script>
+        <script src="js/ion.rangeSlider.js"></script>
+        <script src="http://api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+        
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/js/cbpAnimatedHeader.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="js/findom.js"></script>
+   
+        <script>
+            $(document).ready(function () {
+                $("[rel='tooltip']").tooltip({
+                });
+            });
+        </script>
+
+    </head>
+    
+    <body id="issue">  
+       <div class="col-xs-12 menu-parent zero-padding">
+            <div id="menu">
+                <ul>
+                    <li class="main-logo">
+                       <a href="index.html">
+                            <img src="images/minilogo.svg">
+                        </a>
+                    </li>
+                   <li class="page-scroll">
+                        <a data-toggle="modal" data-target=".bs-example-modal-md">
+                            Выберите город
+                        </a>
+                    </li>                   
+                    <li>О проекте</li>
+                    <li>Регистрация/вход</li>
+                </ul>    
+           </div>
+        </div>
+        
+        <div id="wrapper">
+            <div class="container-fluid container-fix issue-header" style="background-image: url(../images/photo.jpg);">      
+                <div class="row relative">
+                    <div class="col-xs-4 parent issue-discription">
+                        <div class="col-xs-12 second-quarter-item second-quarter-item-issue  zero-padding item-text-field">
+                           <p><br>FINDOME<br>Поиск и бронирования квартир в новостройках городов РФ<br>Предложения напрямую от застройщиков. Актуальный текущий статус квартиры</p> 
+                            <a href="#" class="button-info">Подробности</a>             
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container fin">
+                <div class="col-xs-12 zero-padding search-block-issue">
+                       
+                        <div class="col-xs-12" id="search-header">
+                            <ul>
+                                <li>
+                                     <img src="images/micrologo.png" class="search-head-logo">
+                                </li>
+                                <li class="search-title-city">
+                                      Поиск жилья
+                                </li>
+                                <li class="search-name-city">
+                                    <a data-toggle="modal" data-target=".bs-example-modal-md">
+                                        Новосибирск
+                                    </a>
+                                </li>
+                            </ul> 
+                        </div>
+
+                   <div class="col-xs-12 search-top-line">
+                       <div class="col-xs-2 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                             <label class="hint">Район</label>
+                                <a data-toggle="modal" data-target=".modal-area">
+                                    <input  class="search-input">
+                                </a>
+                           </div>
+                       </div>
+                       <div class="col-xs-2 search-top-line-item zero-padding item-left">
+                            <div class="form-group text-center">
+                             <label class="hint">Застройщик</label>
+                                <a data-toggle="modal" data-target=".modal-z">
+                                    <input  class="search-input">
+                                </a>
+                           </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                             <label class="hint">ЖК</label>
+                                <a data-toggle="modal" data-target=".modal-zk">
+                                    <input  class="search-input mini-width">
+                                </a>
+                           </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Тип</label>
+                                <a data-toggle="modal" data-target=".modal-type">
+                                    <input  class="search-input mini-width">
+                                </a>
+                            </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Этаж</label>
+                                    <input  class="search-input mini-width floor" maxlength="2">
+                            </div>
+                       </div>   
+                       <div class="col-xs-2 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Материал стен</label>
+                                <select id="wall_type" class="ss" multiple="multiple">
+                                    <option value="1">Кирпич</option>
+                                    <option value="2">Панели</option>
+                                    <option value="3">Сибит</option>
+                                    <option value="4">Дерево</option>
+                                </select>
+                            </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Категория</label>
+                                <select id="cat" class="ss mini-ss" multiple="multiple">
+                                    <option value="1">Бизнесс</option>
+                                    <option value="2">Комфорт</option>
+                                    <option value="3">Эконом</option>
+                                </select>
+                            </div>
+                       </div>
+                        <div class="col-xs-2 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Срок сдачи</label>
+                                <div class="col-xs-7 zero-padding">
+                                    <select id="date" class="ss mini-ss" multiple="multiple">
+                                        <option value="1">1 квартал</option>
+                                        <option value="2">2 квартал</option>
+                                        <option value="3">3 квартал</option>
+                                        <option value="4">4 квартал</option>
+                                    </select>
+                                </div>  
+                               <div class="col-xs-5 zero-padding padding-right">  
+                                    <input  class="search-input ear" placeholder="год" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="col-xs-12 search-back-line zero-padding padding-left">
+                       <div class="col-xs-8 search-slider-block zero-padding">
+                            <div class="col-xs-4 search-slider-item">
+                                <label class="hint margin-bottom-35">Площадь, м<sup>2</sup></label>
+                                <input type="text" id="meters" name="example_name" value="" class="ion-slider"/>
+                    <span class="grid-plus">+</span>
+                            </div>
+                            <div class="col-xs-4 search-slider-item">
+                                <label class="hint margin-bottom-35">Цена за м2, тыс. руб</label>
+                                <input type="text" id="meter-price" name="example_name" value="" class="ion-slider"/>
+                    <span class="grid-plus">+</span>
+                            </div>
+                            <div class="col-xs-4 search-slider-item">
+                                <label class="hint margin-bottom-35">Стоимость, млн. руб</label>
+                                <input type="text" id="flat-price" name="example_name" value="" class="ion-slider"/>
+                    <span class="grid-plus">+</span>
+                            </div>
+                       </div>
+                        <div class="col-xs-4 search-slider-block zero-padding">
+                            <div class="col-xs-12 search-last-item-top">
+                                <div class="col-xs-2 col-xs-offset-2 box">
+                                <div class="form-group decor_checkbox">
+                                        <label class="hint fix-hint">Парковка</label>
+                                    <span>
+                                        <input type="checkbox"/>		
+                                    </span>
+                                </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group text-center">
+                                        <label class="hint">Балкон</label>
+                                        <select id="balkon" class="ss" multiple="multiple">
+                                            <option value="1">Кирпич</option>
+                                            <option value="2">Панели</option>
+                                            <option value="3">Сибит</option>
+                                            <option value="4">Дерево</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 metro-block">
+                                    <div class="form-group text-center">
+                                        <label class="hint">Метро</label>
+                                        <a data-toggle="modal" data-target=".metro">
+                                            <input  class="search-input">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 search-last-item-bottom">
+                                <div class="col-xs-5">
+                                </div>
+                                  <div class="col-xs-7 search-button-block">
+                                    <input type="button" class="search-button" value="Показать варианты"></input> 
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+            </div>
+
+        <div class="container-fluid breadcrumb-line">    
+            <div class="container fin">
+               <div class="col-xs-12 breadcrumb-block">
+                    <ol class="breadcrumb zero-padding breadcrumbfix">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="active"><a href="issue.html">Результаты поиска</a></li>
+                        <li><a href="complex.html">Жилой комплекс</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>    
+            
+
+            
+            <div class="container fin">
+                <div class="col-xs-12 zero-padding legend-block">
+                	<img src="images/legend.svg">
+                </div>
+                
+                
+           <!--     <div class="col-xs-12 zero-padding freeflatblock border">
+					<span>
+						<input type="checkbox"/>		
+					</span>
+					<label>Не отображать забронированные</label>
+                </div>
+                -->
+              
+     <div class="dec_checkbox col-xs-4 col-xs-offset-4 zero-padding">
+		<span>
+			<input type="checkbox" />		
+		</span>
+		<label>Не отображать забронированные</label>
+	</div>
+ 
+                
+                <div class="col-xs-12 table-block text-center zero-padding">
+                    <table class="table issue-table display" id="example">
+                        <thead>
+                            <tr>
+                                <th id="bn">Квартира</th>
+                                <th>Район</th>
+                                <th>Застройщик</th>
+                                <th class="sorting">ЖК</th>
+                                <th>Адрес</th>
+                                <th>Срок<br>сдачи</th>
+                                <th class="sorting-up">Комн.&nbsp&nbsp</th>
+                                <th class="sorting-down ">Этаж&nbsp&nbsp</th>
+                                <th >S м<sup>2</sup></th>
+                                <th>Цена&nbsp<br>&nbsp;т.р./м<sup>2</sup>&nbsp</th>
+                                <th>Стоимость&nbsp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment-free.html' ">
+                                    <a title="Посмотреть квартиру">
+                                        <div class="flat-number">
+                                            103
+                                        </div>
+                                    </a>
+                                    <a title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
+                                    </a>
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    Железнодорожный
+                                </td>
+                                <td class="anchor" onClick="location.href='developPAGE.html' ">
+                                    ГК МИЦ
+                                </td>
+                                <td class="anchor" onClick="location.href='complex.html' ">
+                                    Эталон-Сити
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    Краузе 142
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    1 кв. 2019
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    2 ст.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    2/18
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    28
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    53 т.р.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    3 500 т.р.
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr title="Квартира забронирована" class="booking">
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment.html' ">
+                                    <a href="#" title="Посмотреть квартиру">
+                                        <div class="flat-number flat-number-booked">
+                                            32
+                                        </div>
+                                    </a>
+ 
+                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
+                                    </a>
+                                    <a href="#" title="отправить уведомлении о снятии брони" rel="tooltip" data-placement="right">
+                                        <img src="images/dingdong.svg" class="dingdong z-but">
+                                        <img src="images/dingdongh.svg" class="dingdong z-but-h">
+                                    </a>
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    Дзержинский
+                                </td>
+                                <td class="anchor" onClick="location.href='developPAGE.html' ">
+                                    Жилищный капитал
+                                </td>
+                                <td class="anchor" onClick="location.href='complex.html' ">
+                                    Андреевский
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    Фрунзе 98
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    2 кв. 2018
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    1 кмн.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    10/25
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    30
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    35 т.р.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    2 500 т.р.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment-free.html' ">
+                                    <a href="#" title="Посмотреть квартиру">
+                                        <div class="flat-number">
+                                            98
+                                        </div>
+                                    </a>
+                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
+                                    </a>
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    Центральный
+                                </td>
+                                <td class="anchor" onClick="location.href='developPAGE.html' ">
+                                    Альтек
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    Времена года
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    Кропоткина 142
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    2 кв. 2016
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    3 кмн.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    4/17
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html'">
+                                    20
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    65 т.р.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
+                                    5 500 т.р.
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr title="Квартира забронирована" class="booking">
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment.html' ">
+                                    <a href="#" title="Перейти к просмотру">
+                                        <div class="flat-number flat-number-booked">
+                                            32
+                                        </div>
+                                    </a>
+ 
+                                    <a href="#" title="квартира добавлена в сранение" rel="tooltip" data-placement="right">
+                                        <img src="images/ready.svg" class="add">
+                                    </a>
+                                    <a href="#" title="уведомление о снятие брони отправлено" rel="tooltip" data-placement="right">
+                                        <img src="images/dingdongr.svg" class="dingdong">
+                                    </a>
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    Октябрьский
+                                </td>
+                                <td class="anchor" onClick="location.href='developPAGE.html' ">
+                                    Альтек
+                                </td>
+                                <td class="anchor" onClick="location.href='complex.html' ">
+                                    Акрополь
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    Высоцкого 58
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    1 кв. 2016
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    1 ст.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    1/10
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    25
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    35 т.р.
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    5 100 т.р.
+                                </td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    
+            <br><br><br><br><br><br>
+            <br><br><br><br><br><br>                             
+                                                              
+                                                                                   
+                                                                                                                             
+ <div class="container-fluid container-fix" id="footer">      
+        <div class="row">
+            <div class="col-xs-4">
+                    <img src="images/black-logo.svg" class="footer-logo">
+            </div>
+            <div class="col-xs-4 zero-padding">
+            </div>
+            <div class="col-xs-4 zero-padding">
+                <ul class="list-line list-inline">
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-vk"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    </body>
+</html>
